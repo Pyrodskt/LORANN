@@ -1,4 +1,6 @@
 package view;
+import javax.swing.Action;
+import javax.swing.JFrame;
 
 /**
  * <h1>The Interface IView.</h1>
@@ -15,4 +17,8 @@ public interface IView {
      *            the message
      */
     void displayMessage(String message);
+
+	
+
+	//void JMenuItem(Action displayMessage);
 }

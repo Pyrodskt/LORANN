@@ -1,19 +1,18 @@
 package model.dao;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 /**
- * <h1>The Class BoulderDashBDDConnector.</h1>
+
+* <h1>The Class BoulderDashBDDConnector.</h1>
  *
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
  */
 final class LorannBDDConnector {
-
+	static String personne = "bite";
     /** The instance. */
     private static LorannBDDConnector instance;
 
@@ -27,11 +26,44 @@ final class LorannBDDConnector {
     private static String                  url      = "jdbc:mysql://localhost/lorann?useSSL=false&serverTimezone=UTC";
 
     /** The connection. */
-    private Connection                     connection;
+    public static Connection                     connection =null;
 
     /** The statement. */
-    private Statement                      statement;
+    public static Statement                      statement =null;
+    	
 
+    public static void sauverEnBase (String personne) {
+    	
+    	
+    	 
+    	 try 
+    {
+    	//Step 1: Loading the driver
+    	Class.forName("com.mysql.jdbc.Driver");
+    	//Step 2: checking the connection
+    	connection = DriverManager.getConnection(url, user, password);
+    	//Step 3: creating a statement
+    	statement = connection.createStatement();
+    	String sql = "INSERT INTO 'javadb' ('personne') VALUES ('"+ personne + "')";
+    	//Step 4: executing the query
+    	statement.executeUpdate(sql);
+    } catch (SQLException e) {
+    	e.printStackTrace();
+    } catch (ClassNotFoundException e) {
+    	e.printStackTrace();
+    } finally {
+    	try {
+    		//Step 5: liberate memory ressources
+    		connection.close();
+    		statement.close();
+    	} catch (SQLException e) {
+    		e.printStackTrace();
+    	}
+    	
+    }
+   
+    	
+    }
     /**
      * Instantiates a new boulder dash BDD connector.
      */
