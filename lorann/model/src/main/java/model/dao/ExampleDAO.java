@@ -1,5 +1,5 @@
 package model.dao;
-import javax.swing.JMenuItem;
+
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -40,20 +40,20 @@ public abstract class ExampleDAO extends AbstractDAO {
      * @throws SQLException
      *             the SQL exception
      */
-    public static Example getExampleById(final int id) throws SQLException {
+    public static Example getExampleById( int id) throws SQLException {
         final CallableStatement callStatement = prepareCall(sqlExampleById);
         Example example = null;
         callStatement.setInt(1, id);
         if (callStatement.execute()) {
             final ResultSet result = callStatement.getResultSet();
             if (result.first()) {
-                example = new Example(result.getInt(idColumnIndex), result.getString(nameColumnIndex));
+                example = new Example(result.getString(nameColumnIndex));
             }
             result.close();
         }
         return example;
     }
-
+    
     /**
      * Gets the example by name.
      *
@@ -78,7 +78,8 @@ public abstract class ExampleDAO extends AbstractDAO {
         return example;
     }
 
-    /**
+
+    /*
      * Gets the all examples.
      *
      * @return the all examples
@@ -89,9 +90,9 @@ public abstract class ExampleDAO extends AbstractDAO {
         final ArrayList<Example> examples = new ArrayList<Example>();
         final CallableStatement callStatement = prepareCall(sqlAllExamples);
         if (callStatement.execute()) {
-            final ResultSet result = callStatement.getResultSet();
+           final ResultSet result = callStatement.getResultSet();
 
-            for (boolean isResultLeft = result.first(); isResultLeft; isResultLeft = result.next()) {
+         for (boolean isResultLeft = result.first(); isResultLeft; isResultLeft = result.next()) {
                 examples.add(new Example(result.getInt(idColumnIndex), result.getString(nameColumnIndex)));
             }
             result.close();

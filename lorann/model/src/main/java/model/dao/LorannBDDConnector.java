@@ -12,7 +12,7 @@ import java.sql.Statement;
  * @version 1.0
  */
 final class LorannBDDConnector {
-	static String personne = "bite";
+	
     /** The instance. */
     private static LorannBDDConnector instance;
 
@@ -32,38 +32,9 @@ final class LorannBDDConnector {
     public static Statement                      statement =null;
     	
 
-    public static void sauverEnBase (String personne) {
+
     	
-    	
-    	 
-    	 try 
-    {
-    	//Step 1: Loading the driver
-    	Class.forName("com.mysql.jdbc.Driver");
-    	//Step 2: checking the connection
-    	connection = DriverManager.getConnection(url, user, password);
-    	//Step 3: creating a statement
-    	statement = connection.createStatement();
-    	String sql = "INSERT INTO 'javadb' ('personne') VALUES ('"+ personne + "')";
-    	//Step 4: executing the query
-    	statement.executeUpdate(sql);
-    } catch (SQLException e) {
-    	e.printStackTrace();
-    } catch (ClassNotFoundException e) {
-    	e.printStackTrace();
-    } finally {
-    	try {
-    		//Step 5: liberate memory ressources
-    		connection.close();
-    		statement.close();
-    	} catch (SQLException e) {
-    		e.printStackTrace();
-    	}
-    	
-    }
-   
-    	
-    }
+    
     /**
      * Instantiates a new boulder dash BDD connector.
      */
@@ -100,9 +71,9 @@ final class LorannBDDConnector {
      */
     private boolean open() {
         try {
-            this.connection = DriverManager.getConnection(LorannBDDConnector.url, LorannBDDConnector.user,
+            LorannBDDConnector.connection = DriverManager.getConnection(LorannBDDConnector.url, LorannBDDConnector.user,
                     LorannBDDConnector.password);
-            this.statement = this.connection.createStatement();
+            LorannBDDConnector.statement = LorannBDDConnector.connection.createStatement();
             return true;
         } catch (final SQLException exception) {
             exception.printStackTrace();
@@ -151,7 +122,7 @@ final class LorannBDDConnector {
      */
     public int executeUpdate(final String query) {
         try {
-            return this.statement.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
+            return LorannBDDConnector.statement.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
         } catch (final SQLException e) {
             e.printStackTrace();
         }
@@ -164,7 +135,7 @@ final class LorannBDDConnector {
      * @return the connection
      */
     public Connection getConnection() {
-        return this.connection;
+        return LorannBDDConnector.connection;
     }
 
     /**
@@ -174,7 +145,7 @@ final class LorannBDDConnector {
      *            the new connection
      */
     public void setConnection(final Connection connection) {
-        this.connection = connection;
+        LorannBDDConnector.connection = connection;
     }
 
     /**
@@ -183,7 +154,7 @@ final class LorannBDDConnector {
      * @return the statement
      */
     public Statement getStatement() {
-        return this.statement;
+        return LorannBDDConnector.statement;
     }
 
     /**
@@ -193,7 +164,7 @@ final class LorannBDDConnector {
      *            the new statement
      */
     public void setStatement(final Statement statement) {
-        this.statement = statement;
+        LorannBDDConnector.statement = statement;
     }
 
 }
