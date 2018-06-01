@@ -1,12 +1,17 @@
 package view;
-
+//import controller.IController;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class Fenetre2 extends JFrame {
+public class Fenetre2 extends JFrame  {
+
+	/**
+	 * 
+	 */
+
 
 	public Fenetre2 () 
 	{
@@ -43,6 +48,13 @@ public class Fenetre2 extends JFrame {
 		    
 		    
 		    Fenetre2.setVisible(true);
+		    //faire une méthode publique  qui permet l'affichage de la map
+		//    bouton2.addActionListener(e -> System.out.println(map));
+		    bouton3.addActionListener(e -> Fenetre2.dispose()); 
+		   
+		    bouton5.addActionListener(e -> System.exit(0));
+		    
+		   
 	}
 
 }
