@@ -48,7 +48,7 @@ public class Example {
 
     /**
      * Gets the name.
-     *
+     *v 
      * @return the name
      */
     public String getName() {

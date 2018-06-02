@@ -21,7 +21,7 @@ public class ControllerFacade  implements IController {
     /** The model. */
     private final IModel model;
 
-    /**
+    /** 
      * Instantiates a new controller facade.
      *
      * @param view
@@ -48,7 +48,7 @@ public class ControllerFacade  implements IController {
      */
     public void start() throws SQLException {
     	//Here we can choose the "Example" choose by id
-        this.getView().displayMessage(this.getModel().getExampleById(2).toString());
+       // this.getView().displayMessage(this.getModel().getExampleById(2).toString());
 
        // this.getView().displayMessage(this.getModel().getExampleByName("Niveau 2").toString());
 

@@ -44,13 +44,18 @@ public class Fenetre2 extends JFrame  {
 		    Fenetre2.validate();
 		    Fenetre2.setContentPane(pan);
 		    Fenetre2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		    
+		
+	
+		 
 		    
 		    
 		    Fenetre2.setVisible(true);
 		    //faire une méthode publique  qui permet l'affichage de la map
 		//    bouton2.addActionListener(e -> System.out.println(map));
-		    bouton3.addActionListener(e -> Fenetre2.dispose()); 
+		 
+		   bouton2.addActionListener(e -> Fenetre2.dispose()); 
+		    
+		    bouton3.addActionListener(e -> new Fenetre3().setVisible(true)); 
 		   
 		    bouton5.addActionListener(e -> System.exit(0));
 		    
