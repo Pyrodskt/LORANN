@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 
  
 
-public class Fenetre1 extends JFrame{
+public class Fenetre1 extends JFrame {
     
     public Fenetre1() {
     
@@ -19,7 +19,7 @@ public class Fenetre1 extends JFrame{
     JPanel pan = new JPanel();
     JButton bouton = new JButton("Do you wanna be a super hero ?");
     JButton bouton2 = new JButton("Or maybe King Moldu");
-    JLabel texte = new JLabel("Welcome to Lorann !\n\n Do you want my BBC ?\n\n");
+    JLabel texte = new JLabel("Welcome to Lorann !\n\n Do you wanna play Video Games ?\n\n");
     
     String url = "C:\\Users\\PyrodSkt\\Desktop\\Projet JAVA\\LORANN\\LorannPhoto.jpg";
     ImageIcon icone = new ImageIcon(url);

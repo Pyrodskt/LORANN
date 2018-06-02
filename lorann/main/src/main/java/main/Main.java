@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import controller.ControllerFacade;
 import model.ModelFacade;
 import view.Fenetre1;
+import view.Fenetre3;
 import view.ViewFacade;
 
 /**
@@ -14,7 +15,7 @@ import view.ViewFacade;
  */
 public abstract class Main {
 
-    /**
+    /** 
      * The main method.
      *
      * @param args
@@ -22,11 +23,12 @@ public abstract class Main {
      */
     public static void main(final String[] args) {
         final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
-     //  new Fenetre1();
-       System.out.println("name");
+       new Fenetre1();
+       //Fenetre3 fene = new Fenetre3();
+   
     
         try {
-        	System.out.println("name");
+       
             controller.start();
         } catch (final SQLException exception) {
             exception.printStackTrace();

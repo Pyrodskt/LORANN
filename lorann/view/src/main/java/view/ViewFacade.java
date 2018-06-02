@@ -21,9 +21,9 @@ public class ViewFacade implements IView {
      * (non-Javadoc)
      * @see view.IView#displayMessage(java.lang.String)
      */
-    @Override
-    public final void displayMessage( String message) {
-        JOptionPane.showMessageDialog(null, message);
+  //  @Override
+  //  public final void displayMessage( String message) {
+       // JOptionPane.showMessageDialog(null, message); 
     }
 
-}
+

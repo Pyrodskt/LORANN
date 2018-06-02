@@ -9,7 +9,7 @@ package model;
 public class Example {
 
     /** The id. */
-    private final int id;
+    private  int id;
 
     /** The name. */
     private String    name;
@@ -22,12 +22,21 @@ public class Example {
      * @param name
      *            the name
      */
-    public Example(final int id, final String name) {
+    public Example( int id,  String name) {
         super();
         this.id = id;
         this.name = name;
     }
-
+    
+    public Example (int id) {
+    	super();
+    	this.id = id;
+    }
+    
+    public Example (String name) {
+    	super();
+    	this.name = name;
+    }
     /**
      * Gets the id.
      *
@@ -39,7 +48,7 @@ public class Example {
 
     /**
      * Gets the name.
-     *
+     *v 
      * @return the name
      */
     public String getName() {
@@ -62,6 +71,6 @@ public class Example {
      */
     @Override
     public String toString() {
-        return this.getId() + " : " + this.getName();
+        return this.getName();
     }
 }
